@@ -11,11 +11,19 @@
     margin: 5% auto;
 }
 
+.center {
+    width: 70%;
+    margin: 0 auto;
+}
+
 @media (max-width: 600px){
     .card{
         width: 100%;
         min-width: 0px;
         padding: 0px;
+    }
+    .center{
+        width: 85%
     }
 
 }
@@ -63,10 +71,7 @@
     margin-bottom: 50px;
 }
 
-.center {
-    width: 70%;
-    margin: 0 auto;
-}
+
 
 span {
     font-size: x-large;

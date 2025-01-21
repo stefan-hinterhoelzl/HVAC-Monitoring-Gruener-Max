@@ -1,34 +1,35 @@
 <div class="content">
   <div class="center">
+    @if (!this.loading) {
     <mat-card class="card" [ngClass]="{'heating': isHeating(), 'cooling': isCooling(), 'error': hasError()}">
       <mat-card-header>
         <mat-card-title-group>
           <mat-card-title>Gruener Max - HVAC Monitoring</mat-card-title>
-          <mat-card-subtitle>by Daniel Zainzinger</mat-card-subtitle>
         </mat-card-title-group>
       </mat-card-header>
       <mat-divider></mat-divider>
       <mat-card-content class="info">
         @if (isHeating()) {
-          <span class="material-symbols-outlined heating-icon">
-            mode_heat
-            </span>
-          <span>Heating</span>
+        <span class="material-symbols-outlined heating-icon">
+          mode_heat
+        </span>
+        <span>Heating</span>
         } @else if (isCooling()) {
-          <span class="material-symbols-outlined cooling-icon">
-            mode_cool
-            </span>
-          <span>Cooling</span>
+        <span class="material-symbols-outlined cooling-icon">
+          mode_cool
+        </span>
+        <span>Cooling</span>
         } @else if (hasError()) {
-          <span class="material-symbols-outlined error-icon">
-            error
-            </span>
-          <span>An Error Occured</span>
+        <span class="material-symbols-outlined error-icon">
+          error
+        </span>
+        <span>An Error Occured</span>
         }
       </mat-card-content>
       <mat-card-footer>
         <span class="last-checked"> Last Check: {{last_check | date:"MMM dd, yyyy 'at' hh:mm:ss a"}}</span>
       </mat-card-footer>
     </mat-card>
+  }
   </div>
 </div>

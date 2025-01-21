@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   last_check: number;
   state: StateResponse;
   stopTimer$: Subject<void>;
+  loading: boolean;
 
   constructor(private _data: DataPollingService) {
     this.state = <StateResponse> {
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
     };
     this.last_check = Date.now();
     this.stopTimer$ = new Subject<void>();
+    this.loading = true;
   }
   
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class AppComponent implements OnInit {
         this.last_check = Date.now();
         this.state.Cooler = value.Cooler;
         this.state.Heater = value.Heater;
+        this.loading = false
       },
       error: (err) => {
         this.ngOnInit();
